@@ -1,7 +1,10 @@
+
 #!/usr/bin/env bash
 set -e
 
 [[ $DEBUG == true ]] && set -x
+
+genTime=$(date "+%Y-%m-%d %H:%M:%S %z")
 
 log_info(){
     >&2 echo "INFO>" $@
@@ -9,6 +12,13 @@ log_info(){
 
 get_ipip_data(){
     ipip_data=$(curl -sSL https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt 2>/dev/null)
+}
+
+gen_info(){
+    echo "$1Author: CCnut
+$1Source: https://github.com/CCnut/ChnRoutes_script
+$1Time: $genTime
+$1"
 }
 
 gen_rule(){
@@ -53,7 +63,8 @@ add dst-address=192.168.0.0/16 interface=bridge action=lookup table=main comment
     local rule=$(gen_rule 'add dst-address=' 'interface=bridge action=lookup table=ChnRule comment=\"CreatedBy ChnRoutesScript\"' 2>/dev/null)
     local footer='add dst-address=0.0.0.0/0 interface=bridge action=lookup table=NotChnRule comment="CreatedBy ChnRoutesScript"
 }'
-    echo "$header
+    echo "$(gen_info \#)
+$header
 $rule
 $footer"
 }

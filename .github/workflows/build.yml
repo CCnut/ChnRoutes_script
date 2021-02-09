@@ -34,7 +34,7 @@ jobs:
             echo "Has Update, Commit."
             git config --global user.name 'CCnut'
             git config --global user.email 'CCnut@users.noreply.github.com'
-            git commit -am "Automated Build $(date "+%Y-%m-%d %H:%M:%S")"
+            git commit -am "Automated Build $(date "+%Y-%m-%d %H:%M:%S %Z")"
             git push
           else
             echo "No Update, Exit."

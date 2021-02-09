@@ -27,7 +27,7 @@ jobs:
       - name: Run Build Script
         run: bash build.sh
 
-      - name: Commit report
+      - name: Commit build
         run: |
           git diff --exit-code >/dev/null 2>&1 && commit=1
           if [ -z $commit ]; then

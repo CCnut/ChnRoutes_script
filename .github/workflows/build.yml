@@ -29,7 +29,14 @@ jobs:
 
       - name: Commit report
         run: |
-          git config --global user.name 'CCnut'
-          git config --global user.email 'CCnut@users.noreply.github.com'
-          git commit -am "Automated Build $(date "+%Y-%m-%d %H:%M:%S")"
-          git push
+          git diff --exit-code >/dev/null 2>&1 && commit=1
+          if [ -z $commit ]; then
+            echo "Has Update, Commit."
+            git config --global user.name 'CCnut'
+            git config --global user.email 'CCnut@users.noreply.github.com'
+            git commit -am "Automated Build $(date "+%Y-%m-%d %H:%M:%S")"
+            git push
+          else
+            echo "No Update, Exit."
+            exit 0
+          fi

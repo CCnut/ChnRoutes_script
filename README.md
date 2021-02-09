@@ -4,7 +4,7 @@
 
 ### Mikrotik RouterOS
 
-- chnroutes-ip-route-rule.rsc
+- [RouterOS_ChnRoutes.rsc](/script/RouterOS_ChnRoutes.rsc)
 
 ## Thanks
 

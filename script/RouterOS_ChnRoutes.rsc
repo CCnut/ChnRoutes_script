@@ -1,6 +1,6 @@
 #Author: CCnut
 #Source: https://github.com/CCnut/ChnRoutes_script
-#Time: 2021-04-11 04:28:15 +0000
+#Time: 2021-04-18 04:27:12 +0000
 #
 :if ([:len [/ip route find where routing-mark=[] distance=1 dynamic=yes static=yes]] = 0) do={
 :put "Default gateway not found, exit."

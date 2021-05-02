@@ -1,6 +1,6 @@
 #Author: CCnut
 #Source: https://github.com/CCnut/ChnRoutes_script
-#Time: 2021-04-25 04:28:57 +0000
+#Time: 2021-05-02 04:26:38 +0000
 #
 :if ([:len [/ip route find where routing-mark=[] distance=1 dynamic=yes static=yes]] = 0) do={
 :put "Default gateway not found, exit."
@@ -16,8 +16,8 @@
 :put "# Bypass your special gateway in ip-routes-rules"
 :put "# /ip route rule set src-address=<Your special gateway> action=lookup table=main"
 :put "#"
-#:put "# Set \"ChnRule\" and \"NotChnRule\" in ip-routes"
-#:put "# /ip route add dst-address=0.0.0.0/0 routing-mark=ChnRule gateway=<Your gateway>"
+:put "# Set \"ChnRule\" in ip-routes"
+:put "# /ip route add dst-address=0.0.0.0/0 routing-mark=ChnRule gateway=<Your gateway>"
 :put "# Set \"NotChnRule\" in ip-routes"
 :put "# /ip route add dst-address=0.0.0.0/0 routing-mark=NotChnRule gateway=<Your special gateway>"
 :put "####################################################"
